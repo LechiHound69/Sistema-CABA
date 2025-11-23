@@ -1,0 +1,3 @@
+columna1|columna2|columna3|columna4|columna5
+dato1|dato2|dato3|dato4|dato5|
+gigadato1|gigadato2|gigadato3|gigadato4|gigadato5
