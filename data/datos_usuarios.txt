@@ -1,3 +1,4 @@
 UIN-0001,ADMIN,interno,sistemas
 UEX-0002,test,externo,POL-001
 UIN-0003,rigo,interno,sistemas
+UEX-0004,Analisis_de_datos,externo,POL-002

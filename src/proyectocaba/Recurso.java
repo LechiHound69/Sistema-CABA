@@ -62,8 +62,9 @@ public class Recurso {
             }
         } catch (Exception err){
             System.out.println("Error fatal al mostrar los datos, posible matriz vacía");
-            return;
         }
+        
+        datos_tabla.clear();
     }
 
     public static void setNombre_conjunto_datos(String nombre_conjunto_datos) {

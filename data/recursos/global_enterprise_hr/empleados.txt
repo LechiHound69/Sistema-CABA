@@ -1,0 +1,16 @@
+ID_Empleado|Nombre_Completo|Departamento|Cargo|Salario_Anual|Fecha_Contratacion|Email_Corporativo|Ubicacion|Es_Manager_Equipo
+EMP-1001|Carlos Méndez|Ingeniería|Desarrollador Senior|85000.00|2019-03-15|carlos.mendez@empresa.com|Madrid|TRUE
+EMP-1002|Luisa Fernández|Marketing|Especialista SEO|52000.50|2021-07-22|luisa.fernandez@empresa.com|Buenos Aires|FALSE
+EMP-1003|John Smith|Ventas|Director Regional|95000.00|2018-01-10|john.smith@empresa.com|New York|TRUE
+EMP-1004|Ana Kobayashi|Ingeniería|DevOps Engineer|78000.00|2022-11-05|ana.kobayashi@empresa.com|Tokio|FALSE
+EMP-1005|Roberto Silva|Recursos Humanos|Reclutador|45000.00|2020-05-18|roberto.silva@empresa.com|Bogotá|FALSE
+EMP-1006|Elena Dobrev|Finanzas|Analista Financiero|67500.25|2019-09-30|elena.dobrev@empresa.com|Berlin|FALSE
+EMP-1007|Mohammed Al-Fayed|Operaciones|Gerente de Logística|72000.00|2021-02-14|mohammed.al@empresa.com|Dubai|TRUE
+EMP-1008|Sarah Johnson|Legal|Asesora Legal|88000.00|2017-06-25|sarah.johnson@empresa.com|Londres|FALSE
+EMP-1009|Wei Chen|I+D|Científico de Datos|92000.00|2023-01-12|wei.chen@empresa.com|Shanghai|FALSE
+EMP-1010|Lucía Torres|Diseño|UX/UI Designer|58000.00|2022-08-01|lucia.torres@empresa.com|Ciudad de México|FALSE
+EMP-1011|Pierre Dubois|Ventas|Ejecutivo de Cuentas|60000.00|2020-11-19|pierre.dubois@empresa.com|Paris|FALSE
+EMP-1012|Isabella Rossi|Ingeniería|QA Tester|48000.00|2023-04-10|isabella.rossi@empresa.com|Roma|FALSE
+EMP-1013|Kevin O'Connor|IT|Administrador de Sistemas|70000.00|2016-12-05|kevin.oconnor@empresa.com|Dublin|TRUE
+EMP-1014|Beatriz Souza|Atención al Cliente|Coordinadora de Soporte|42000.00|2021-09-15|beatriz.souza@empresa.com|São Paulo|TRUE
+EMP-1015|Dimitri Volkov|Seguridad|Analista de Ciberseguridad|81000.00|2022-03-28|dimitri.volkov@empresa.com|Moscú|FALSE

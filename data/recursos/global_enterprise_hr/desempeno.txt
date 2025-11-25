@@ -1,0 +1,13 @@
+id_evaluacion|id_empleado|periodo_evaluado|calificacion_general_1_10|bono_rendimiento_aprobado|fecha_revision|comentarios_supervisor|estado_revision
+REV-2023-001|EMP-1001|2023-Q4|9|TRUE|2024-01-15|Desempeño excepcional en liderazgo técnico.|Finalizado
+REV-2023-002|EMP-1003|2023-Q4|8|TRUE|2024-01-10|Superó las metas de ventas regionales.|Finalizado
+REV-2023-003|EMP-1005|2023-Q4|6|FALSE|2024-01-20|Necesita mejorar tiempos de respuesta en reclutamiento.|Pendiente_Firma
+REV-2023-004|EMP-1002|2023-Q4|7|FALSE|2024-01-12|Buen trabajo en SEO, falta iniciativa en redes.|Finalizado
+REV-2023-005|EMP-1008|2023-Q4|10|TRUE|2024-01-05|Manejo impecable de la auditoría legal.|Finalizado
+REV-2023-006|EMP-1013|2023-Q4|5|FALSE|2024-01-22|Incidencias críticas en servidores no resueltas a tiempo.|En_Revision_RRHH
+REV-2023-007|EMP-1004|2023-Q4|8|TRUE|2024-01-18|Implementación exitosa de CI/CD pipelines.|Finalizado
+REV-2023-008|EMP-1015|2023-Q4|9|TRUE|2024-01-25|Detectó vulnerabilidad crítica antes del lanzamiento.|Finalizado
+REV-2023-009|EMP-1006|2023-Q4|7|FALSE|2024-01-14|Análisis financieros precisos, mejorar comunicación.|Finalizado
+REV-2023-010|EMP-1011|2023-Q4|4|FALSE|2024-01-30|No alcanzó la cuota mínima de ventas.|Plan_Mejora_Iniciado
+REV-2023-011|EMP-1007|2023-Q4|8|TRUE|2024-01-08|Optimización de rutas redujo costos un 15%.|Finalizado
+REV-2023-012|EMP-1009|2023-Q4|9|TRUE|2024-01-11|Modelo predictivo con alta precisión.|Finalizado

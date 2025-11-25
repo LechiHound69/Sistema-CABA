@@ -15,6 +15,7 @@ public class UsuarioExterno extends Usuario{
         
     public void solicitarAcceso(){
         boolean token;
+        Regla regla_solicitada;
                     
         PoliticaDeAcceso politica = new PoliticaDeAcceso(this.ID_politica);
             
@@ -39,14 +40,17 @@ public class UsuarioExterno extends Usuario{
                 opcion = entry.nextInt();
                 entry.nextLine();
                 
-                Regla regla_solicitada = lista_reglas.get(opcion);
+                regla_solicitada = lista_reglas.get(opcion);
                 token = ControlDeAcceso.evaluar(regla_solicitada);
 
                 if (token){
                     Recurso.setNombre_conjunto_datos(regla_solicitada.conjunto_datos.trim());
                     Recurso.setTabla(regla_solicitada.tabla_permitida.trim());
                     int size = regla_solicitada.columnas_permitidas.size();
-                    for (int i = 0; i < size; i++){regla_solicitada.columnas_permitidas.set(i, regla_solicitada.columnas_permitidas.get(i).trim());}
+                    for (int i = 0; i < size; i++){
+                        String columna = regla_solicitada.columnas_permitidas.get(i);
+                        regla_solicitada.columnas_permitidas.set(i, columna.trim());
+                    }
                     Recurso.setColumnas_permitidas(regla_solicitada.columnas_permitidas);
 
                     Recurso.cargarDatos();
@@ -61,7 +65,7 @@ public class UsuarioExterno extends Usuario{
             } catch (Exception err){
                 entry.nextLine();
                 return;
-            }
+            } 
                 
         }
         

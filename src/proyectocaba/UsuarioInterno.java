@@ -245,7 +245,7 @@ public class UsuarioInterno extends Usuario{
             InicioSesion.cargarDatosUsuario();
             while (true){
                 System.out.println("Ingrese el nombre del usuario a consultar datos (o 'fin' para cancelar): ");
-                String usu = entry.nextLine().trim();
+                String usu = entry.nextLine().trim().toLowerCase();
 
                 if (InicioSesion.auxiliar_nombre_ID.get(usu.toLowerCase()) != null){
                     String[] datos = InicioSesion.getLista_datos_usu(usu);

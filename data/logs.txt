@@ -1,2 +1,61 @@
 2025-11-23 14:20:00|UIN-0001|Inicio de sesión|Exitoso
 2025-11-23 14:20:05|UIN-0001|Vista de info de usuario|Exitoso
+2025-11-24 21:49:11|UIN-0001|Inicio de sesión|Exitoso
+2025-11-24 21:50:13|UIN-0001|Creación de usuario|Exitoso
+2025-11-24 21:50:59|UIN-0001|Vista de info de usuario|Fallido
+2025-11-24 21:52:05|UIN-0001|Inicio de sesión|Exitoso
+2025-11-24 21:54:54|UIN-0001|Creación de regla|Exitoso
+2025-11-24 21:55:28|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 21:55:47|UEX-0002|Solicitud de acceso|Denegado
+2025-11-24 21:55:57|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 21:58:38|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 21:58:41|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 21:59:32|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 21:59:42|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 21:59:53|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:00:28|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:00:40|UIN-0001|Inicio de sesión|Exitoso
+2025-11-24 22:01:30|UIN-0001|Vista de info de usuario|Exitoso
+2025-11-24 22:02:03|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:02:08|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:02:18|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:03:00|UIN-0001|Inicio de sesión|Exitoso
+2025-11-24 22:03:15|UIN-0001|Vista de info de usuario|Fallido
+2025-11-24 22:03:23|UIN-0001|Vista de info de usuario|Exitoso
+2025-11-24 22:04:03|UEX-0004|Inicio de sesión|Exitoso
+2025-11-24 22:06:02|UIN-0001|Inicio de sesión|Exitoso
+2025-11-24 22:06:13|UIN-0001|Vista de info de usuario|Exitoso
+2025-11-24 22:06:24|UIN-0001|Vista de info de usuario|Exitoso
+2025-11-24 22:06:44|UEX-0004|Inicio de sesión|Exitoso
+2025-11-24 22:13:09|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:13:15|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:13:19|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:13:27|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:15:45|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:15:52|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:15:55|UEX-0002|Solicitud de acceso|Denegado
+2025-11-24 22:15:58|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:16:05|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:17:47|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:17:52|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:18:18|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:18:22|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:18:42|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:18:46|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:19:30|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:19:34|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:19:40|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:19:43|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:32:49|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:32:54|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:32:58|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:33:06|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:41:24|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:41:26|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:41:33|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:42:05|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:47:12|UEX-0002|Inicio de sesión|Exitoso
+2025-11-24 22:47:15|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:47:17|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:47:26|UEX-0002|Solicitud de acceso|Aprobado
+2025-11-24 22:47:36|UEX-0002|Solicitud de acceso|Aprobado
