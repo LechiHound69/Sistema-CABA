@@ -1,12 +1,15 @@
 
 package proyectocaba;
 import java.util.HashMap;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 
 public class ControlDeAcceso {
     
-    private String version_sistema;
-    private HashMap<String, PoliticaDeAcceso> politicas_guardadas;
+    private String ARCHIVO_HASH;
+    private HashMap<String, String> politicas_guardadas;
 
     public ControlDeAcceso() {
         this.politicas_guardadas = new HashMap<>();
@@ -25,5 +28,18 @@ public class ControlDeAcceso {
         }
         
         return true;
+    }
+    
+    public void cargarHash(){
+        String linea;
+        try (BufferedReader hash = new BufferedReader(new FileReader(ARCHIVO_HASH))){
+            while ((linea = hash.readLine()) != null){
+                String[] partes = linea.split(",");
+                for (int i = 0; i < partes.lenght(); i++){datos[i].trim()}
+                String ID_usu = partes[0].trim;
+                String ID_pol = partes[1].trim;
+                this.politicas_guardadas.put(ID_usu, ID_pol);
+            }
+        }
     }
 }

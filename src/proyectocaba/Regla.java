@@ -2,6 +2,9 @@
 package proyectocaba;
 import java.util.ArrayList;
 import java.time.LocalDate;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Regla {
     
@@ -21,4 +24,6 @@ public class Regla {
     }
     
     
+    //vamos a hacer el fabricador que obtenga las reglas de una política a través de un archivo de nombre igual al
+    //ID_Politica uwu
 }

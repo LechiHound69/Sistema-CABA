@@ -6,8 +6,7 @@ import java.util.Scanner;
 public class UsuarioExterno extends Usuario{
     
     private Scanner entry = new Scanner(System.in);
-    private String tipo_contrato;
-    private boolean token;
+    private String tipo_contrato
     private String nombre_conjunto;
     private Regla regla_solicitada;
 
@@ -19,6 +18,7 @@ public class UsuarioExterno extends Usuario{
         
     public void solicitarAcceso(ControlDeAcceso autoridad){
         
+        private boolean token;
         boolean verificacion_politica = autoridad.gestionarAcceso(ID_Usuario);
         if (verificacion_politica){
             
@@ -76,4 +76,7 @@ public class UsuarioExterno extends Usuario{
         return "Datos del Usuario:\n" + "|Id: " + this.ID_Usuario + "\n" + "|Nombre: " + this.nombre + "\n" + "|Tipo de usuario: " + this.tipo_de_usuario + "\n" + "|Tipo de contrato actual: " + this.tipo_contrato + "\n";
     }
     
+    /*public void menu(){
+        
+    }*/
 }

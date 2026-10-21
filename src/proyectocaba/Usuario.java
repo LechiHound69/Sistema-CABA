@@ -15,4 +15,6 @@ public abstract class Usuario {
     }
     
     public abstract String verInfo(String ID_Usuario, String nombre , String tipo_de_usuario);
+    
+    //public abstract void menu();
 }
