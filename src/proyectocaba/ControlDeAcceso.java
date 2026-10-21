@@ -11,15 +11,15 @@ public class ControlDeAcceso {
     private String ARCHIVO_HASH;
     private HashMap<String, String> politicas_guardadas;
 
-    public ControlDeAcceso() {
+    /*public ControlDeAcceso() {
         this.politicas_guardadas = new HashMap<>();
-    }
+    } */
     
-    public PoliticaDeAcceso obtenerPolitica(String ID_Usuario){
+    public static PoliticaDeAcceso obtenerPolitica(String ID_Usuario){
         return this.politicas_guardadas.get(ID_Usuario);
     }
     
-    public boolean gestionarAcceso(String ID_Usuario){
+    public static boolean gestionarAcceso(String ID_Usuario){
         
         PoliticaDeAcceso politica_usuario = politicas_guardadas.get(ID_Usuario);
         
@@ -30,7 +30,7 @@ public class ControlDeAcceso {
         return true;
     }
     
-    public void cargarHash(){
+    public static void cargarHash(){
         String linea;
         try (BufferedReader hash = new BufferedReader(new FileReader(ARCHIVO_HASH))){
             while ((linea = hash.readLine()) != null){

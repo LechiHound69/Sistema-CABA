@@ -10,17 +10,19 @@ public class Regla {
     
     private int ID_regla;
     public String conjunto_datos;
-    private LocalDate fecha_vencimiento;
-    public ArrayList<String> tablas_permitidas = new ArrayList<>();
+    public LocalDate fecha_vencimiento;
+    public ArrayList<String> tablas_permitidas;
 
     public String getConjunto_datos() {
         return conjunto_datos;
     }
     
 
-    public Regla(String conjunto_datos, LocalDate fecha_vencimiento) {
+    public Regla(int ID_regla, String conjunto_datos, LocalDate fecha_vencimiento, ArrayList<String> tablas_permitidas) {
+        this.ID_regla = ID_regla;
         this.conjunto_datos = conjunto_datos;
         this.fecha_vencimiento = fecha_vencimiento;
+        this.tablas_permitidas = tablas_permitidas;
     }
     
     

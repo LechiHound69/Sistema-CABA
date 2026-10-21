@@ -14,14 +14,15 @@ public class InicioSesion {
     private String usuario; 
     private String contraseña;
     
-    public boolean autenticar(String usuario, String contrasena){
+    public static boolean autenticar(String usuario, String contrasena){
         String hash_intento = generarHash(contrasena);
         String hash_guardado = credenciales.get(usuario);
         return hash_intento.equals(hash_guardado);
     }
     
-    public Usuario iniciar(String ID_usuario){
+    public static Usuario iniciar(String ID_usuario){
         
+        cargarDatosUsuario();
         String[] datos_usuario = datos_usu.get(ID_Usuario);
         for (int i = 0; i < datos_usuario.lenght(); i++){datos_usuario[i].trim()}
         String ID_usuario = datos_usuario[0];
@@ -47,13 +48,14 @@ public class InicioSesion {
         return Integer.toString(hash);
     }
     
-    public void cargarCredenciales(){
+    public static void cargarCredenciales(){
         String linea;
         try(BufferedReader login = new BufferedReader(new FileReader(ARCHIVO_CREDENCIALES))){
             while ((linea = login.readLine()) != null){
                 String[] partes = linea.split(",");
-                String usu = partes[0].trim();
-                String contrasena_guardada = partes[1].trim();
+                for (int i = 0; i < partes.lenght(); i++){partes[i].trim()}
+                String usu = partes[0];
+                String contrasena_guardada = partes[1];
                 this.credenciales.put(usu, contrasena_guardada);
             }
         } catch (IOException err){
@@ -61,14 +63,14 @@ public class InicioSesion {
         }
     }
     
-    public void cargarDatosUsuario(){
+    public static void cargarDatosUsuario(){
         //El flujo de datos es: ID_Usuario [0], nombre [1], tipo_usuario [2], tipo_contrato ó departamento [3]
         String linea;
         try(BufferedReader data = new BufferedReader(new FileReader(ARCHIVO_DATOS))){
             while ((linea = login.readLine()) != null){
                 String[] datos = linea.split(",");
                 for (int i = 0; i < datos.lenght(); i++){datos[i].trim()}
-                String ID_usu = datos[0].trim;
+                String ID_usu = datos[0];
                 this.datos_usu.put(ID_usu, datos);
             } catch (IOException err){
                 err.printStackTrace();
