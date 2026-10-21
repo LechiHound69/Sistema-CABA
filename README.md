@@ -5,3 +5,6 @@ que no fuera refinar lógica, ideas y pulir la sintaxis específica de Java que 
 en la universidad, apenas voy en tercer semestre. No lo pienso descartar, tal vez lo retome en asignaturas posteriores para irlo escalando y probablemente pueda llegar
 a ser algo grande en un futuro. No es tanto una meta, es más bien una posibilidad que no quiero descartar. Si alguien lo leyó, gracias por leer, y gracias por ver mi
 proyecto, realmente me pone feliz haber hecho algo así por mi cuenta a pesar de ser tan inexperto.
+TODO EL CÓDIGO FUE HECHO A MANO POR UN HUMANO, INCLUSO LAS CORRECCIONES DE LA IA FUERON TIPEADAS A MANO, NO COPYPASTEADAS.
+
+Actualización de quinto semestre: Ya le sé más a todo un poco; cuando tenga tiempo le meto ORM. Ahora que le sé a las bases de datos parece que el proyecto es un despropósito, pero intentaré darle sentido real, como una especie de personalizador de consultas o creador de vistas, pero todo centralizado alrededor del control de acceso y la seguridad. Ya veré xd, ténganle fé al furro
