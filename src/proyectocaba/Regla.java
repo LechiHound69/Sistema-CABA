@@ -1,28 +1,29 @@
-
 package proyectocaba;
 import java.util.ArrayList;
 import java.time.LocalDate;
-import java.io.BufferedReader;
+/*import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.IOException;*/
 
 public class Regla {
     
-    private int ID_regla;
+    //private int ID_regla;
     public String conjunto_datos;
+    public String tabla_permitida;
     public LocalDate fecha_vencimiento;
-    public ArrayList<String> tablas_permitidas;
+    public ArrayList<String> columnas_permitidas;
 
-    public String getConjunto_datos() {
+    /*public String getConjunto_datos() {
         return conjunto_datos;
-    }
+    }*/
     
 
-    public Regla(int ID_regla, String conjunto_datos, LocalDate fecha_vencimiento, ArrayList<String> tablas_permitidas) {
-        this.ID_regla = ID_regla;
+    public Regla(String conjunto_datos, String tabla_permitida, LocalDate fecha_vencimiento, ArrayList<String> columnas_permitidas) {
+        //this.ID_regla = ID_regla;
         this.conjunto_datos = conjunto_datos;
+        this.tabla_permitida = tabla_permitida;
         this.fecha_vencimiento = fecha_vencimiento;
-        this.tablas_permitidas = tablas_permitidas;
+        this.columnas_permitidas = columnas_permitidas;
     }
     
     

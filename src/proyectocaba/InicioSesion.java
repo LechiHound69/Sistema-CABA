@@ -1,4 +1,3 @@
-
 package proyectocaba;
 import java.util.HashMap;
 import java.io.FileReader;
@@ -7,12 +6,14 @@ import java.io.IOException;
 
 public class InicioSesion {
     
-    private HashMap<String, String> credenciales; //
-    private String ARCHIVO_CREDENCIALES;
-    private HashMap<String, String[]> datos_usu;
-    private String ARCHIVO_DATOS;
-    private String usuario; 
-    private String contraseña;
+    private static HashMap<String, String> credenciales; //
+    private static String ARCHIVO_CREDENCIALES;
+    private static HashMap<String, String[]> datos_usu;
+    private static String ARCHIVO_DATOS;
+    public static HashMap<String, String> auxiliar_nombre_ID;
+    
+    //private String usuario; 
+    //private String contraseña;
     
     public static boolean autenticar(String usuario, String contrasena){
         String hash_intento = generarHash(contrasena);
@@ -20,43 +21,48 @@ public class InicioSesion {
         return hash_intento.equals(hash_guardado);
     }
     
-    public static Usuario iniciar(String ID_usuario){
+    public static Usuario iniciar(String ID_usu){
+        //cargarDatosUsuario();
+        String[] datos_usuario = datos_usu.get(ID_usu);
+        int size = datos_usuario.length;
+        for (int i = 0; i < size; i++){datos_usuario[i] = datos_usuario[i].trim();}
+        //String ID_usu = datos_usuario[0];
+        String nombre = datos_usuario[1];
+        String tipo_usuario = datos_usuario[2];
         
-        cargarDatosUsuario();
-        String[] datos_usuario = datos_usu.get(ID_Usuario);
-        for (int i = 0; i < datos_usuario.lenght(); i++){datos_usuario[i].trim()}
-        String ID_usuario = datos_usuario[0];
-        String tipo_usuario = datos_usuario[1];
-        String nombre = datos_usuario[2];
-        
-        
-        if (tipo_usuario.equals("Externo")){
-            String tipo_contrato = datos_usuario[3].trim();
-            UsuarioExterno user = new UsuarioExterno(ID_usuario, nombre, tipo_usuario, tipo_contrato);
-            return user;
-        } else if(tipo_usuario.equals("Interno")){
-            String departamento = datos_usuario[3].trim();
-            UsuarioInterno user = new UsuarioInterno(ID_usuario, nombre, tipo_usuario, departamento);
-            return user;
-        } else {
-            return null;
+        switch (tipo_usuario){
+            case "externo" -> {
+                String ID_politica = datos_usuario[3];
+                UsuarioExterno user = new UsuarioExterno(ID_usu, nombre, tipo_usuario, ID_politica);
+                return user;
+            }
+            
+            case "interno" -> {
+                String departamento = datos_usuario[3];
+                UsuarioInterno user = new UsuarioInterno(ID_usu, nombre, tipo_usuario, departamento);
+                return user;
+            }
+            
+            default -> {return null;}
         }
+        
     }
     
-    private String generarHash(String contrasena){
+    public static String generarHash(String contrasena){
         int hash = contrasena.hashCode();
         return Integer.toString(hash);
     }
     
-    public static void cargarCredenciales(){
+    private static void cargarCredenciales(){
         String linea;
         try(BufferedReader login = new BufferedReader(new FileReader(ARCHIVO_CREDENCIALES))){
             while ((linea = login.readLine()) != null){
                 String[] partes = linea.split(",");
-                for (int i = 0; i < partes.lenght(); i++){partes[i].trim()}
+                int size = partes.length;
+                for (int i = 0; i < size; i++){partes[i] = partes[i].trim();}
                 String usu = partes[0];
                 String contrasena_guardada = partes[1];
-                this.credenciales.put(usu, contrasena_guardada);
+                credenciales.put(usu, contrasena_guardada);
             }
         } catch (IOException err){
             err.printStackTrace();
@@ -64,19 +70,42 @@ public class InicioSesion {
     }
     
     public static void cargarDatosUsuario(){
-        //El flujo de datos es: ID_Usuario [0], nombre [1], tipo_usuario [2], tipo_contrato ó departamento [3]
+        //El flujo de datos es: ID_Usuario [0], nombre [1], tipo_usuario [2], ID_politica ó departamento [3]
         String linea;
         try(BufferedReader data = new BufferedReader(new FileReader(ARCHIVO_DATOS))){
-            while ((linea = login.readLine()) != null){
+            while ((linea = data.readLine()) != null){
                 String[] datos = linea.split(",");
-                for (int i = 0; i < datos.lenght(); i++){datos[i].trim()}
+                int size = datos.length;
+                for (int i = 0; i < size; i++){datos[i] = datos[i].trim();}
                 String ID_usu = datos[0];
-                this.datos_usu.put(ID_usu, datos);
-            } catch (IOException err){
-                err.printStackTrace();
+                String nombre = datos[1];
+                auxiliar_nombre_ID.put(nombre.toLowerCase(), ID_usu);
+                datos_usu.put(ID_usu, datos);
             }
+        } catch (IOException err){
+            err.printStackTrace();
         }
     }
+
+    public static HashMap<String, String[]> getDatos_usu() {
+        return datos_usu;
+    }
+    
+    public static String[] getLista_datos_usu(String nombre_usu){
+        String ID_usu = auxiliar_nombre_ID.get(nombre_usu);
+        
+        return datos_usu.get(ID_usu);
+    }
+
+    public static String getARCHIVO_DATOS() {
+        return ARCHIVO_DATOS;
+    }
+
+    public static String getARCHIVO_CREDENCIALES() {
+        return ARCHIVO_CREDENCIALES;
+    }
+
+
     
     
 }

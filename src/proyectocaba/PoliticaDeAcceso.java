@@ -1,34 +1,24 @@
-
 package proyectocaba;
 import java.util.ArrayList;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
 public class PoliticaDeAcceso {
     
     private String ID_Politica;
-    //private String ARCHIVO_POLITICA;
     private ArrayList<Regla> politica = new ArrayList<>();
+    private static final String RUTA_POLITICAS = "";
     
-    public PoliticaDeAcceso(int ID_Politica){
+    public PoliticaDeAcceso(String ID_Politica){
         this.ID_Politica = ID_Politica;
-        cargarPolitica();
-    }
-    
-    public PoliticaDeAcceso(int ID_Politica, ArrayList<Regla> politica){
-        this.ID_Politica = ID_Politica;
-        this.politica = politica;
-    }
-    
-    public boolean evaluar(Regla regla){
-        return true;
     }
 
-    /*public ArrayList<Regla> getPolitica() {
+    public ArrayList<Regla> getPolitica() {
         return politica;
-    } */
+    }
     
     public void cargarPolitica(){
         String linea;
@@ -36,13 +26,16 @@ public class PoliticaDeAcceso {
             Regla regla;
             while ((linea = pol.readLine()) != null){
                 String[] partes = linea.split(",");
-                for (int i = 0; i < partes.lenght(); i++){partes[i].trim()}
-                int ID_regla = Integer.parseInt(partes[0]);
-                String conjunto_datos = partes[1];
+                int size = partes.length;
+                for (int i = 0; i < size; i++){partes[i] = partes[i].trim();}
+                //el flujo de la regla es ID, conjunto, tabla, fecha y columnas
+                //int ID_regla = Integer.parseInt(partes[0]);
+                String conjunto_datos = partes[0];
+                String tabla = partes[1];
                 LocalDate fecha = LocalDate.parse(partes[2]);
-                ArrayList<String> tablas = new ArrayList<>();
-                for (int j = 3; j < partes.lenght(); j++){tablas.add(partes[j])}
-                regla = new Regla(ID_regla, conjunto_datos, fecha, tablas);
+                ArrayList<String> columnas = new ArrayList<>();
+                for (int j = 3; j < size; j++){columnas.add(partes[j]);}
+                regla = new Regla(conjunto_datos, tabla, fecha, columnas);
                 this.politica.add(regla);
             }
         } catch (IOException err){
@@ -54,5 +47,22 @@ public class PoliticaDeAcceso {
     
     private void eliminarRegla(){}
     
-    private void editarRegla(){}
+    public static String generarIDPolitica(){
+        File carpeta_pol = new File(RUTA_POLITICAS);
+        
+        File[] archivos = carpeta_pol.listFiles();
+        
+        int siguiente_pol = 1;
+        
+        if (archivos != null){
+            int size = archivos.length;
+            siguiente_pol = size + 1;
+        }
+        
+        String secuencia = String.format("%0" + 3 + "d", siguiente_pol);
+        
+        return "POL-" + secuencia;
+        
+    }
+    
 }
