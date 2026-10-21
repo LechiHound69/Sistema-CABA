@@ -16,20 +16,30 @@ public class InicioSesion {
     //private String contraseña;
     
     public static boolean autenticar(String usuario, String contrasena){
-        String hash_intento = generarHash(contrasena);
-        String hash_guardado = credenciales.get(usuario);
-        return hash_intento.equals(hash_guardado);
+        try{
+            cargarCredenciales();
+            String hash_intento = generarHash(contrasena);
+            String hash_guardado = credenciales.get(usuario);
+            return hash_intento.equals(hash_guardado);
+        } catch (Exception err){
+            System.out.println("Error de autenticación, por favor vuelva a intentar")
+            return false;
+        }
     }
     
     public static Usuario iniciar(String ID_usu){
-        //cargarDatosUsuario();
-        String[] datos_usuario = datos_usu.get(ID_usu);
-        int size = datos_usuario.length;
-        for (int i = 0; i < size; i++){datos_usuario[i] = datos_usuario[i].trim();}
-        //String ID_usu = datos_usuario[0];
-        String nombre = datos_usuario[1];
-        String tipo_usuario = datos_usuario[2];
-        
+        try{
+            //cargarDatosUsuario();
+            String[] datos_usuario = datos_usu.get(ID_usu);
+            int size = datos_usuario.length;
+            for (int i = 0; i < size; i++){datos_usuario[i] = datos_usuario[i].trim();}
+            //String ID_usu = datos_usuario[0];
+            String nombre = datos_usuario[1];
+            String tipo_usuario = datos_usuario[2];
+        } catch (Exception err){
+            System.out.println("Error al cargar los datos del usuario, por favor vuelva a intentar")
+            return null;
+        }
         switch (tipo_usuario){
             case "externo" -> {
                 String ID_politica = datos_usuario[3];
@@ -66,6 +76,7 @@ public class InicioSesion {
             }
         } catch (IOException err){
             err.printStackTrace();
+            return;
         }
     }
     
@@ -92,9 +103,14 @@ public class InicioSesion {
     }
     
     public static String[] getLista_datos_usu(String nombre_usu){
-        String ID_usu = auxiliar_nombre_ID.get(nombre_usu);
-        
-        return datos_usu.get(ID_usu);
+        try{
+            String ID_usu = auxiliar_nombre_ID.get(nombre_usu);
+            
+            return datos_usu.get(ID_usu);
+        } catch (Exception err){
+            System.out.println("Error fatal al cargar los datos del usuario");
+            return null;
+        }
     }
 
     public static String getARCHIVO_DATOS() {

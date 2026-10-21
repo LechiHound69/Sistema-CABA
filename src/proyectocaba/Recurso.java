@@ -37,27 +37,31 @@ public class Recurso {
     }
     
     public static void mostrarDatos(){
-        ArrayList<Integer> indices = new ArrayList<>();
-        ArrayList<String> fila_principal = datos_tabla.get(0);
-        String columna_guardada;
-        int size = fila_principal.size();
-        
-        for (String columna_permitida : columnas_permitidas){
-            for (int i = 0; i < size; i++){
-                columna_guardada = fila_principal.get(i);
-                if(columna_permitida.trim().equalsIgnoreCase(columna_guardada)){
-                    indices.add(i);
+        try{
+            ArrayList<Integer> indices = new ArrayList<>();
+            ArrayList<String> fila_principal = datos_tabla.get(0);
+            String columna_guardada;
+            int size = fila_principal.size();
+            
+            for (String columna_permitida : columnas_permitidas){
+                for (int i = 0; i < size; i++){
+                    columna_guardada = fila_principal.get(i);
+                    if(columna_permitida.trim().equalsIgnoreCase(columna_guardada)){
+                        indices.add(i);
+                    }
+                        
                 }
-                    
             }
-        }
-        
-        for (ArrayList<String> fila : datos_tabla){
-            for (int index : indices){
-                System.out.print(fila.get(index) + "  |  ");
+            
+            for (ArrayList<String> fila : datos_tabla){
+                for (int index : indices){
+                    System.out.print(fila.get(index) + "  |  ");
+                }
             }
+        } catch (Exception err){
+            System.out.println("Error fatal al mostrar los datos, posible matriz vacía");
+            return;
         }
-        
     }
 
     public static void setNombre_conjunto_datos(String nombre_conjunto_datos) {

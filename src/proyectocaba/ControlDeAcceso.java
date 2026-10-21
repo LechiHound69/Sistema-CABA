@@ -28,8 +28,13 @@ public class ControlDeAcceso {
     } */
     
     public static boolean evaluar(Regla regla){
-        LocalDate fecha_max = regla.fecha_vencimiento;
-        return hoy.isBefore(fecha_max) || hoy.isEqual(fecha_max);
+        try{
+            LocalDate fecha_max = regla.fecha_vencimiento;
+            return hoy.isBefore(fecha_max) || hoy.isEqual(fecha_max);
+        } catch (Exception err) {
+            System.out.println("Error fatal al leer regla, regla no válida");
+            return false;
+        }
     }
     
     /*public static void cargarHash(){

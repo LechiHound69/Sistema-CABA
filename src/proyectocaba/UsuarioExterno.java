@@ -84,19 +84,23 @@ public class UsuarioExterno extends Usuario{
     public void verMenu(){
         
         while (true){
-            System.out.println("Bienvenido, " + this.nombre + ". Por favor elija una opción: ");
-            System.out.println("Opción 1: Solicitar acceso a un recurso");
-            System.out.println("Opción 2: Ver info del usuario logueado");
-            System.out.println("Opción 3: Cerrar sesión");
-            int opcion = entry.nextInt();
+            try{
+                System.out.println("Bienvenido, " + this.nombre + ". Por favor elija una opción: ");
+                System.out.println("Opción 1: Solicitar acceso a un recurso");
+                System.out.println("Opción 2: Ver info del usuario logueado");
+                System.out.println("Opción 3: Cerrar sesión");
+                int opcion = entry.nextInt();
 
-            switch (opcion) {
-                case 1 -> this.solicitarAcceso();
-                case 2 -> this.verInfo();
-                case 3 -> {return;}
-                default -> {
-                    System.out.println("Opción inválida. Elija otra opción:");
+                switch (opcion) {
+                    case 1 -> this.solicitarAcceso();
+                    case 2 -> this.verInfo();
+                    case 3 -> {return;}
+                    default -> {
+                        System.out.println("Opción inválida. Elija otra opción:");
+                    }
                 }
+            } catch (Exception err){
+                System.out.println("Por favor ingrese un valor válido");
             }
         }
     }

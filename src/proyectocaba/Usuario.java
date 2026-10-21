@@ -17,11 +17,7 @@ public abstract class Usuario {
         this.nombre = nombre;
         this.tipo_de_usuario = tipo_de_usuario;
     }
-    
-    public abstract String verInfo();
-    
-    public abstract void verMenu();    
-    
+
     public static void crearLog(String accion, String ID_usu, String resultado){
         LocalDateTime timestamp = LocalDateTime.now();
         String fecha_hora = timestamp.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
@@ -36,4 +32,9 @@ public abstract class Usuario {
             System.out.println("Error de I/O: No se pudo escribir en el archivo de logs");
         }
     }
+    
+    public abstract String verInfo();
+    
+    public abstract void verMenu();    
+    
 }

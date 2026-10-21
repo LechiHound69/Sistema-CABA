@@ -43,10 +43,6 @@ public class PoliticaDeAcceso {
         }
     }
     
-    private void crearRegla(){}
-    
-    private void eliminarRegla(){}
-    
     public static String generarIDPolitica(){
         File carpeta_pol = new File(RUTA_POLITICAS);
         

@@ -32,25 +32,29 @@ public class UsuarioInterno extends Usuario{
         boolean flag = false;
         
         while (!flag){
-            System.out.println("Ingrese el nombre del usuario para crear regla (o 'salir' para cancelar): ");
-            usuario = entry.nextLine().trim();
-            
-            if (InicioSesion.auxiliar_nombre_ID.get(usuario) != null){
-                System.out.println("Usuario encontrado.");
-                String[] datos = InicioSesion.getLista_datos_usu(usuario);
-                if (datos[2].equalsIgnoreCase("interno")){
-                    System.out.println("Error: No se puede crear una regla a un usuario interno. Por favor intente de nuevo");
-                    continue;
+            try{
+                System.out.println("Ingrese el nombre del usuario para crear regla (o 'salir' para cancelar): ");
+                usuario = entry.nextLine().trim();
+                
+                if (InicioSesion.auxiliar_nombre_ID.get(usuario) != null){
+                    System.out.println("Usuario encontrado.");
+                    String[] datos = InicioSesion.getLista_datos_usu(usuario);
+                    if (datos[2].equalsIgnoreCase("interno")){
+                        System.out.println("Error: No se puede crear una regla a un usuario interno. Por favor intente de nuevo");
+                        continue;
+                    }
+                    ARCHIVO_POL = datos[3].trim() + ".txt";
+                    flag = true;
+                } else if (usuario.trim().equalsIgnoreCase("salir")) {
+                    return;
+                } else {
+                    System.out.println("Error: Usuario no encontrado. Por favor intente de nuevo");
+                    flag = false;
                 }
-                ARCHIVO_POL = datos[3].trim() + ".txt";
-                flag = true;
-            } else if (usuario.trim().equalsIgnoreCase("salir")) {
+            } catch (Exception err){
+                System.out.println("Error fatal, no se cargaron los usuarios correctamente");
                 return;
-            } else {
-                System.out.println("Error: Usuario no encontrado. Por favor intente de nuevo");
-                flag = false;
             }
-            
         }
         
         System.out.println("Ingrese el nombre del conjunto de datos al que se dará acceso (o 'salir' para cancelar): ");
@@ -128,24 +132,29 @@ public class UsuarioInterno extends Usuario{
         String nuevo_ID_pol = "POL-";
         String nueva_contrasena;
         
-        int siguiente_usu = InicioSesion.auxiliar_nombre_ID.size() + 1;
-        String secuencia = String.format("%0" + 4 + "d", siguiente_usu);
-        
-        while (!flag){
-            System.out.println("Ingrese el nombre del nuevo usuario (o 'fin' para cancelar): ");
-            nombre_nuevo = entry.nextLine().trim();
-
-            if (InicioSesion.auxiliar_nombre_ID.get(nombre_nuevo.toLowerCase()) != null){
-                System.out.println("Error: El usuario ya existe");
-                flag = false;
-            } else if (nombre_nuevo.trim().equalsIgnoreCase("fin")) {
-                return;
-            } else {
-                flag = true;
-            }
+        try{
+            int siguiente_usu = InicioSesion.auxiliar_nombre_ID.size() + 1;
+            String secuencia = String.format("%0" + 4 + "d", siguiente_usu);
             
+            while (!flag){
+                System.out.println("Ingrese el nombre del nuevo usuario (o 'fin' para cancelar): ");
+                nombre_nuevo = entry.nextLine().trim();
+
+                if (InicioSesion.auxiliar_nombre_ID.get(nombre_nuevo.toLowerCase()) != null){
+                    System.out.println("Error: El usuario ya existe");
+                    flag = false;
+                } else if (nombre_nuevo.trim().equalsIgnoreCase("fin")) {
+                    return;
+                } else {
+                    flag = true;
+                }
+                
+            }
+        } catch (Exception err){
+            System.out.println("Error fatal, los usuarios no se cargaron correctamente");
+            return;
         }
-        
+
         flag = false;
         while (!flag){
             System.out.println("Ingrese el tipo de usuario (Interno, externo, o 'fin' para cancelar): ");
@@ -228,20 +237,25 @@ public class UsuarioInterno extends Usuario{
     }
     
     private void verInfoUsu(){
-        while (true){
-            System.out.println("Ingrese el nombre del usuario a consultar datos (o 'fin' para cancelar): ");
-            String usu = entry.nextLine().trim();
+        try{
+            while (true){
+                System.out.println("Ingrese el nombre del usuario a consultar datos (o 'fin' para cancelar): ");
+                String usu = entry.nextLine().trim();
 
-            if (InicioSesion.auxiliar_nombre_ID.get(usu.toLowerCase()) != null){
-                String[] datos = InicioSesion.getLista_datos_usu(usu);
-                String linea = String.join(",", datos);
-                System.out.println("Datos del usuario ingresado: " + linea);
-            } else if (usu.trim().equalsIgnoreCase("fin")) {
-                return;
-            } else {
-                System.out.println("Error: El usuario no existe.");
+                if (InicioSesion.auxiliar_nombre_ID.get(usu.toLowerCase()) != null){
+                    String[] datos = InicioSesion.getLista_datos_usu(usu);
+                    String linea = String.join(",", datos);
+                    System.out.println("Datos del usuario ingresado: " + linea);
+                } else if (usu.trim().equalsIgnoreCase("fin")) {
+                    return;
+                } else {
+                    System.out.println("Error: El usuario no existe.");
+                }
+                
             }
-            
+        } catch (Exception err){
+            System.out.println("Error fatal, los usuarios no se cargaron correctamente");
+            return;
         }
     }
     
@@ -258,26 +272,30 @@ public class UsuarioInterno extends Usuario{
     public void verMenu(){
         
         while (true){
-            System.out.println("Bienvenido, " + this.nombre + ". Por favor elija una opción: ");
-            System.out.println("Opción 1: Ver logs de acceso");
-            System.out.println("Opción 2: Crear usuario");
-            System.out.println("Opción 3: Crear regla para un usuario");
-            System.out.println("Opción 4: Ver info de un usuario específico");
-            System.out.println("Opción 5: Ver info del usuario logueado");
-            System.out.println("Opción 6: Cerrar sesión");
-            int opcion = entry.nextInt();
+            try{
+                System.out.println("Bienvenido, " + this.nombre + ". Por favor elija una opción: ");
+                System.out.println("Opción 1: Ver logs de acceso");
+                System.out.println("Opción 2: Crear usuario");
+                System.out.println("Opción 3: Crear regla para un usuario");
+                System.out.println("Opción 4: Ver info de un usuario específico");
+                System.out.println("Opción 5: Ver info del usuario logueado");
+                System.out.println("Opción 6: Cerrar sesión");
+                int opcion = entry.nextInt();
 
-            switch (opcion) {
-                case 1 -> verLogs();
-                case 2 -> this.crearUsuario();
-                case 3 -> this.crearRegla();
-                case 4 -> this.verInfoUsu();
-                case 5 -> this.verInfo();
-                case 6 -> {return;}
-                default -> {
-                    System.out.println("Opción inválida. Elija otra opción:");
+                switch (opcion) {
+                    case 1 -> verLogs();
+                    case 2 -> this.crearUsuario();
+                    case 3 -> this.crearRegla();
+                    case 4 -> this.verInfoUsu();
+                    case 5 -> this.verInfo();
+                    case 6 -> {return;}
+                    default -> {
+                        System.out.println("Opción inválida. Elija otra opción:");
+                    }
                 }
-            }
+            } catch (java.util.InputMismatchException err){
+                System.out.println("Por favor ingrese un valor válido. Se esperaba un número");
+            }   
         }
     }
 
