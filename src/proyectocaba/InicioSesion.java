@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public class InicioSesion {
     
-    private static HashMap<String, String> credenciales; //
-    private static String ARCHIVO_CREDENCIALES;
-    private static HashMap<String, String[]> datos_usu;
-    private static String ARCHIVO_DATOS;
-    public static HashMap<String, String> auxiliar_nombre_ID;
+    private static HashMap<String, String> credenciales = new HashMap<>(); //
+    private static final String ARCHIVO_CREDENCIALES = "data/credenciales.txt";
+    private static HashMap<String, String[]> datos_usu = new HashMap<>();
+    private static final String ARCHIVO_DATOS = "data/datos_usuarios.txt";
+    public static HashMap<String, String> auxiliar_nombre_ID = new HashMap<>();
     
     //private String usuario; 
     //private String contraseña;
@@ -22,22 +22,25 @@ public class InicioSesion {
             String hash_guardado = credenciales.get(usuario);
             return hash_intento.equals(hash_guardado);
         } catch (Exception err){
-            System.out.println("Error de autenticación, por favor vuelva a intentar")
+            System.out.println("Error de autenticación, por favor vuelva a intentar");
             return false;
         }
     }
     
     public static Usuario iniciar(String ID_usu){
+        String nombre;
+        String tipo_usuario;
+        String[] datos_usuario;
         try{
             //cargarDatosUsuario();
-            String[] datos_usuario = datos_usu.get(ID_usu);
+            datos_usuario = datos_usu.get(ID_usu);
             int size = datos_usuario.length;
             for (int i = 0; i < size; i++){datos_usuario[i] = datos_usuario[i].trim();}
             //String ID_usu = datos_usuario[0];
-            String nombre = datos_usuario[1];
-            String tipo_usuario = datos_usuario[2];
+            nombre = datos_usuario[1];
+            tipo_usuario = datos_usuario[2];
         } catch (Exception err){
-            System.out.println("Error al cargar los datos del usuario, por favor vuelva a intentar")
+            System.out.println("Error al cargar los datos del usuario, por favor vuelva a intentar");
             return null;
         }
         switch (tipo_usuario){
@@ -76,7 +79,6 @@ public class InicioSesion {
             }
         } catch (IOException err){
             err.printStackTrace();
-            return;
         }
     }
     

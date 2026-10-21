@@ -11,7 +11,7 @@ public class Regla {
     public String conjunto_datos;
     public String tabla_permitida;
     public LocalDate fecha_vencimiento;
-    public ArrayList<String> columnas_permitidas;
+    public ArrayList<String> columnas_permitidas = new ArrayList<>();
 
     /*public String getConjunto_datos() {
         return conjunto_datos;
@@ -20,8 +20,8 @@ public class Regla {
 
     public Regla(String conjunto_datos, String tabla_permitida, LocalDate fecha_vencimiento, ArrayList<String> columnas_permitidas) {
         //this.ID_regla = ID_regla;
-        this.conjunto_datos = conjunto_datos;
-        this.tabla_permitida = tabla_permitida;
+        this.conjunto_datos = conjunto_datos.trim();
+        this.tabla_permitida = tabla_permitida.trim();
         this.fecha_vencimiento = fecha_vencimiento;
         this.columnas_permitidas = columnas_permitidas;
     }

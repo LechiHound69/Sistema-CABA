@@ -7,19 +7,20 @@ import java.io.IOException;
 public class Recurso {
     
     private static String nombre_conjunto_datos;
-    private static String ARCHIVO_TABLA;
-    private static ArrayList<ArrayList<String>> datos_tabla = new ArrayList<>();
+    private static String tabla;
     private static ArrayList<String> columnas_permitidas;
+    private static ArrayList<ArrayList<String>> datos_tabla = new ArrayList<>();
 
     /*public Recurso(String nombre_conjunto_datos, String tabla, ArrayList<String> columnas_permitidas) {
         this.nombre_conjunto_datos = nombre_conjunto_datos;
-        this.ARCHIVO_TABLA = tabla;
+        this.tabla = tabla;
         this.columnas_permitidas = columnas_permitidas;
     } */
     
     public static void cargarDatos(){
         String linea;
-        try(BufferedReader data = new BufferedReader(new FileReader(ARCHIVO_TABLA))){
+        String ruta = "data/recursos/" + nombre_conjunto_datos.trim() + "/" + tabla.trim() + ".txt";
+        try(BufferedReader data = new BufferedReader(new FileReader(ruta))){
             while ((linea = data.readLine()) != null){
                 String[] partes = linea.trim().split("\\|");
                 ArrayList<String> fila = new ArrayList<>();
@@ -57,6 +58,7 @@ public class Recurso {
                 for (int index : indices){
                     System.out.print(fila.get(index) + "  |  ");
                 }
+                System.out.println();
             }
         } catch (Exception err){
             System.out.println("Error fatal al mostrar los datos, posible matriz vacía");
@@ -68,8 +70,8 @@ public class Recurso {
         Recurso.nombre_conjunto_datos = nombre_conjunto_datos;
     }
 
-    public static void setARCHIVO_TABLA(String ARCHIVO_TABLA) {
-        Recurso.ARCHIVO_TABLA = ARCHIVO_TABLA;
+    public static void setTabla(String tabla) {
+        Recurso.tabla = tabla;
     }
 
     public static void setColumnas_permitidas(ArrayList<String> columnas_permitidas) {

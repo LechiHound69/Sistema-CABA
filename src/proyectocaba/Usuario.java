@@ -10,7 +10,7 @@ public abstract class Usuario {
     protected String ID_Usuario;
     public String tipo_de_usuario;
     protected String nombre;
-    public static String ARCHIVO_LOGS;
+    public static final String ARCHIVO_LOGS = "data/logs.txt";
 
     public Usuario(String ID_Usuario, String nombre, String tipo_de_usuario) {
         this.ID_Usuario = ID_Usuario;
@@ -33,7 +33,7 @@ public abstract class Usuario {
         }
     }
     
-    public abstract String verInfo();
+    public abstract void verInfo();
     
     public abstract void verMenu();    
     

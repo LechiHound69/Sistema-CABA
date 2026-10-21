@@ -10,7 +10,7 @@ public class PoliticaDeAcceso {
     
     private String ID_Politica;
     private ArrayList<Regla> politica = new ArrayList<>();
-    private static final String RUTA_POLITICAS = "";
+    private static final String RUTA_POLITICAS = "data/politicas/";
     
     public PoliticaDeAcceso(String ID_Politica){
         this.ID_Politica = ID_Politica;
@@ -22,7 +22,8 @@ public class PoliticaDeAcceso {
     
     public void cargarPolitica(){
         String linea;
-        try(BufferedReader pol = new BufferedReader(new FileReader(this.ID_Politica))){
+        String ruta = RUTA_POLITICAS + this.ID_Politica + ".txt";
+        try(BufferedReader pol = new BufferedReader(new FileReader(ruta))){
             Regla regla;
             while ((linea = pol.readLine()) != null){
                 String[] partes = linea.split(",");
@@ -59,6 +60,10 @@ public class PoliticaDeAcceso {
         
         return "POL-" + secuencia;
         
+    }
+
+    public static String getRUTA_POLITICAS() {
+        return RUTA_POLITICAS;
     }
     
 }
